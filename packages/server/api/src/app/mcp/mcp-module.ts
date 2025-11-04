@@ -4,6 +4,7 @@ import { mcpFlowSseControllerController } from './mcp-server/mcp-flow-sse-contro
 import { mcpServerController } from './mcp-server/mcp-server-controller'
 import { mcpSessionManager } from './mcp-server/mcp-session-manager'
 import { mcpSseController } from './mcp-server/mcp-sse-controller'
+import { aiAgentController } from './app/ai-agent.controller'
 
 export const mcpModule: FastifyPluginAsyncTypebox = async (app) => {
     await app.register(mcpServerController, { prefix: '/v1/mcp-servers' })
@@ -11,4 +12,5 @@ export const mcpModule: FastifyPluginAsyncTypebox = async (app) => {
     await app.register(mcpFlowSseControllerController, { prefix: '/v1/flows' })
     await app.register(mcpRunController, { prefix: '/v1/mcp-runs' })
     await mcpSessionManager(app.log).init()
+    
 }
