@@ -11,6 +11,7 @@ export const mcpModule: FastifyPluginAsyncTypebox = async (app) => {
     await app.register(mcpSseController, { prefix: '/v1/mcp' })
     await app.register(mcpFlowSseControllerController, { prefix: '/v1/flows' })
     await app.register(mcpRunController, { prefix: '/v1/mcp-runs' })
+    await app.register(aiAgentController, { prefix: '/v1/ai-agent' }) 
     await mcpSessionManager(app.log).init()
-    
+  
 }
